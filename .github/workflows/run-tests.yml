@@ -114,6 +114,7 @@ jobs:
     - name: "Setup Python dependencies"
       run: |
         conda activate "$CONDA_TEST_ENVIRONMENT"
+        which -a pip
         pip install -r requirements.txt
         pip install -r test-requirements.txt
 
@@ -128,5 +129,6 @@ jobs:
         conda activate "$CONDA_TEST_ENVIRONMENT"
 
         # export PYTHONPATH=$PWD/src:$PWD:tests:$PYTHONPATH
+        which -a pip
         pip install .
         pytest --it
